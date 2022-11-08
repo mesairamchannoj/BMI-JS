@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <style>
+        body {
+            background-size: cover;
+
+            background-image: url(public/bmi.webp);
+        }
+
+        #main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 768px;
+            background-color: rgba(0, 0, 0, 0.8);
+            margin-left: -15px;
+            margin-right: -12px;
+        }
+
+        #box {
+            border: 2px solid cyan;
+            font-weight: bold;
+            color: wheat;
+            padding: 10px;
+            border-radius: 8px;
+            width: 500px;
+            height: 390px;
+
+        }
+    </style>
+    <script>
+        function Calcualate() {
+            var age = document.getElementById("age").value;
+            var height = document.getElementById("height").value / 100;
+            var weight = document.getElementById("weight").value;
+            var bmi = weight / (height * height);
+            document.getElementById('result').innerHTML = `Your BMI = ${Math.round(bmi)} kg/m<sup>2</sup>`
+        }
+        function Clear() {
+            document.getElementById("result").innerHTML = "";
+        }
+    </script>
+</head>
+
+<body class="container-fluid">
+    <div id="main">
+        <div id="box">
+            <div class="bg-danger mb-2 text-center p-2">
+                <h2>BMI Calculator</h2>
+            </div>
+            <div>
+                Age <span><input type="number" placeholder="in years" id="age" class="w-75 form-control-sm"></span> yrs
+            </div><br>
+            <div>
+                Gender : <span><input type="radio" name="gender"> Male</span> <span><input type="radio" name="gender">
+                    Female</span>
+            </div><br>
+            <div>
+                Height : <input type="number" id="height" class="w-75 form-control-sm" placeholder="in cm"> cm
+            </div><br>
+            <div>
+                Weight : <input type="number" id="weight" class="w-75 form-control-sm" placeholder="in Kg"> kg
+            </div><br>
+            <div>
+                <button onclick="Calcualate()" class="btn btn-warning w-75 p-2">Calculate <span
+                        class="bi bi-chevron-double-right"></span></button><button onclick="Clear()"
+                    class="btn btn-secondary w-25 p-2">Clear</button>
+                <div class="text-center text-info">
+                    <h2 id="result"></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
